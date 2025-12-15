@@ -1,6 +1,6 @@
 import express from "express";
-import { tryOnController } from "../controllers/tryOnController.js";
-import upload from "../config/upload.js";
+import { tryOnController } from "../controllers/tryOn.controller.js"; // src/controllers/tryOnController.js
+import upload from "../middlewares/upload.js";
 
 const router = express.Router();
 
