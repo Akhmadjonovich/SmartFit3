@@ -12,6 +12,7 @@ app.use(cors({
   origin: "https://smart-fit-frontend-delta.vercel.app/" // o‘zingizning Vercel frontend URL
 }));
 
+
 // Body parsers
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
