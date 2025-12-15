@@ -1,18 +1,22 @@
+// src/app.js
 import express from "express";
 import cors from "cors";
-import tryOnRoutes from "./routes/tryOn.routes.js";
-import 'dotenv/config';
-// yoki agar require ishlatayotgan bo‘lsang
-// import dotenv from 'dotenv';
-// dotenv.config();
+import apiRoutes from "./routes/api.js";
 
 const app = express();
 
+// ------------------------------
+// CORS middleware
+// FRONTEND DOMENIGA RUXSAT BERISH
 app.use(cors({
-  origin: ["http://localhost:5173"],
+  origin: "https://smart-fit-frontend-delta.vercel.app/" // o‘zingizning Vercel frontend URL
 }));
 
+// Body parsers
 app.use(express.json());
-app.use("/api/try-on", tryOnRoutes);
+app.use(express.urlencoded({ extended: true }));
+
+// Routes
+app.use("/api", apiRoutes);
 
 export default app;
