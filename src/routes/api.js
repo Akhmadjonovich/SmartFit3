@@ -1,10 +1,8 @@
-// src/routes/api.js
 import express from "express";
 import { tryOnController } from "../controllers/tryOnController.js";
-import multer from "multer";
+import upload from "../config/upload.js";
 
 const router = express.Router();
-const upload = multer({ dest: "uploads/" });
 
 router.post("/try-on", upload.fields([
   { name: "person", maxCount: 1 },

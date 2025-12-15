@@ -2,17 +2,17 @@ import express from "express";
 import cors from "cors";
 import tryOnRoutes from "./routes/api.js";
 import 'dotenv/config';
-// yoki agar require ishlatayotgan bo‘lsang
-// import dotenv from 'dotenv';
-// dotenv.config();
 
 const app = express();
 
-app.use(cors({
-  origin: ["http://localhost:5173"],
-}));
+// CORS: hamma domenlarga ruxsat (Vercel frontend ishlashi uchun)
+app.use(cors());
 
+// Body parsers
 app.use(express.json());
-app.use("/api/try-on", tryOnRoutes);
+app.use(express.urlencoded({ extended: true }));
+
+// Routes
+app.use("/api", tryOnRoutes);
 
 export default app;
